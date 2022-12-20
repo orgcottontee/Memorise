@@ -16,15 +16,15 @@ struct MemoryGame<CardContent> {
     }
     // By nesting this Struct, we make it clear that this is a Card that belongs to a MemoryGame
     
-    //Using generics and functions as arguments 
+    //Using generics and functions as arguments
     init(numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
         cards = Array<Card>()
         // add numberOfPairsOfCards x 2 card to cards array
         // We lose the free init when we declare one here
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = createCardContent(pairIndex)
-            cards.append(Card(content: <#T##CardContent#>))
-            cards.append(Card(content: <#T##CardContent#>))
+            cards.append(Card(content: content))
+            cards.append(Card(content: content))
         }
     }
     

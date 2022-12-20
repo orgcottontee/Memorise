@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["🚝", "🚖", "🚡", "🚔", "🚃", "🚈", "🚂", "🚆", "✈️", "⛵️", "🚀", "🛰️", "🛸", "🚁", "🛳️", "🛥️", "🛩️", "🚅", "🚍", "🛵", "🚑", "🚒", "🚜", "🏎️"]
+    @State var emojis = ["🚝", "🚖", "🚡", "🚔", "🚃", "🚈", "🚂", "🚆", "✈️", "⛵️", "🚀", "🛰️", "🛸", "🚁", "🛳️", "🛥️", "🛩️", "🚅", "🚍", "🛵", "🚑", "🚒", "🚜", "🏎️"]
     @State var emojiCount = 20
     
     var body: some View {
         VStack {
+            Text("Memorise")
+                .font(.largeTitle)
             ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
                     ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
                         CardView(content:emoji)
                             .aspectRatio(2/3, contentMode: .fit)
@@ -22,6 +24,24 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(.red)
+            HStack {
+                Button {
+                    
+                } label: {
+                    Text("Vehicles")
+                }
+                Button {
+                    
+                } label: {
+                    Text("Animals")
+                }
+                Button {
+                    <#code#>
+                } label: {
+                    Text("Flags")
+                }
+
+            }
         }
         .padding(.horizontal)
     }
