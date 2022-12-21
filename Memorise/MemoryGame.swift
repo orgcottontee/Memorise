@@ -9,7 +9,7 @@
 import Foundation
 
 struct MemoryGame<CardContent> {
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
     
     func choose(_ card: Card) {
         
@@ -23,15 +23,16 @@ struct MemoryGame<CardContent> {
         // We lose the free init when we declare one here
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = createCardContent(pairIndex)
-            cards.append(Card(content: content))
-            cards.append(Card(content: content))
+            cards.append(Card(content: content, id: pairIndex*2))
+            cards.append(Card(content: content, id: pairIndex*2+1))
         }
     }
     
-    struct Card {
-        var isFaceUp: Bool = false
+    struct Card: Identifiable {
+        var isFaceUp: Bool = true
         var isMatched: Bool = false
         var content: CardContent
+        var id: Int
         // We made the content generic (don't care) beacuse we don't want to limit the content to only have String types (our app uses emojis). Since we're using a "don't care," we need to announce it to the world by including it within angle brackets in the main Struct because when someone uses the main Struct, they're gonna have to explicit tell us the type for the "don't care."
     }
 }

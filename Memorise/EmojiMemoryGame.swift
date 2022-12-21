@@ -27,6 +27,6 @@ class EmojiMemoryGame {
     // 'private' means that only the ViewModel's code itself can see Model. Doing so protects the model against any View reaching in and tyrihng to change things -> part of something called access control. Make it private unless we're SURE we want other Structs and Classes to access them.
     // 'private(set)' tells Swift that other Classes and Structs can look at the Model, but can't change it
     var cards: Array<MemoryGame<String>.Card> {
-        return model.cards
+        model.cards
     }
 }
